@@ -7,13 +7,9 @@ function Countries() {
     const [countries, setCountries] = useState([]);
 
     useEffect(() => {
-        try {
-            fetch(API)
-                .then(response => response.json())
-                .then(data => setCountries(data));
-        } catch (error) {
-            console.error("Error fetching data: ", error);
-        }
+        fetch(API)
+            .then(response => response.json())
+            .then(data => setCountries(data)).catch(error => console.error("Error fetching data: ", error));
     }, []);
 
     return (
